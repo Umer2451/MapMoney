@@ -64,7 +64,6 @@ function LoginComponent() {
         dispatch(getUserTransactions({ userTransaction : data.payload }));
       }
       if (currentUser) {
-        // Navigate to home page on successful login
         navigate("/home");
       } else {
         toast.error("Incorrect user or password");

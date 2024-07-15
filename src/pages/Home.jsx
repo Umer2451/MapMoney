@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import styles from "../styles/home.module.css";
 import icon from "../assets/MoneyMaps.png";
 import Monetary from '../components/monetaryview';
+import AddmonetaryActions from '../components/addmonetaryactions';
 function Home() {
   return (
     <div className={styles['main-container']}>
@@ -20,9 +21,7 @@ function Home() {
       <div className={styles['right-card']}>
         <div className={styles['card-container']}>
         <Monetary />
-          <div className={styles['card']}>Add Expense</div>
-          <div className={styles['card']}>Add Income</div>
-          <div className={styles['card']}>Add Balance</div>
+        <AddmonetaryActions/>
         </div>
       </div>
     </div>

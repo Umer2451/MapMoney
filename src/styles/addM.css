@@ -1,0 +1,127 @@
+.addmonetary-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    gap: 8px;
+
+}
+
+.addmonetary-section {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px;
+    gap: 8px;
+    width: 390px;
+    height: 150px;
+    border: 1px solid #eceff2;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    flex: none;
+    order: 0;
+    flex-grow: 1;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 300;
+    background-color: #ffffff;
+}
+
+.addmonetary-section-left {
+    flex: 1; /* Takes up one-third of the section for the left content */
+    display: flex;
+}
+
+.addmonetary-section-right {
+    flex: 2; /* Takes up two-thirds of the section for the right content */
+    display: none; /* Initially hides the right content */
+    justify-content: flex-start; /* Aligns content to the start */
+    align-items: center; /* Centers items vertically */
+}
+
+.addmonetary-section.active .addmonetary-section-right {
+    display: flex; /* Shows the right content when section is active */
+}
+
+.addmonetary-section p {
+    font-size: 16px;
+    font-weight: bold;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 300;
+}
+
+.addmonetary-section input {
+    width: 70%; /* Adjust input width as per your design */
+    padding: 10px;
+    margin-top: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+
+.add-income-button{
+    padding: 10px 40px;
+    background-color: #DCFAE6;
+    color: green;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add-expense-button{
+    padding: 10px 40px;
+    background-color: #FEE4E2;
+    color: #D92D20;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add-balance-button{
+    padding: 10px 40px;
+    background-color: #DAEBFF;
+    color: blue;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add-submit-button{
+    padding: 10px 40px;
+    background-color: #DAEBFF;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.add-submit-button:hover{
+    background-color: #5ca0ed;
+}
+.add-income-button:hover {
+    background-color: rgb(85, 231, 85);
+}
+.add-expense-button:hover {
+    background-color: rgb(243, 116, 116);
+}
+.add-balance-button:hover {
+    background-color: #5ca0ed;
+}
+.paragraphDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    width: 100%;
+    position: relative;
+    left: 37px
+}
+
+.paragraphDiv.hidden {
+    display: none;
+}
