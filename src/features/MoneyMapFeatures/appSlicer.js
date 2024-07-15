@@ -178,5 +178,5 @@ export const appSlice = createSlice({
 }
 
 )
-export const {pushUserData, getUserTransactions, getUserTransactionsLocal, pushManuallyaddedTransaction, updateLastTransactionState} = appSlice.actions;
+export const {pushUserData, getUserTransactions, getUserTransactionsLocal, pushManuallyaddedTransaction, updateLastTransactionState, uploadProfilePicURL, setProfilePic} = appSlice.actions;
 export default appSlice.reducer;
