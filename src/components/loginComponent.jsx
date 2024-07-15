@@ -3,10 +3,12 @@ import styles from "../styles/login.module.css";
 import cover1 from "../assets/piggybank.png";
 import cover2 from "../assets/piggybank2.png";
 import icon from "../assets/MoneyMaps.png";
+import AppLoader from './loader';
 
 function LoginComponent() {
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isLoading, setIsLoading] = useState(false); // State to control loader display
 
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
@@ -28,11 +30,19 @@ function LoginComponent() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((currentSlide + 1) % slides.length);
-    }, 3000); // Change slide every 5 seconds (5000 milliseconds)
+    }, 5000); // Change slide every 5 seconds (5000 milliseconds)
 
     // Clean up the interval on component unmount
     return () => clearInterval(interval);
   }, [currentSlide, slides.length]);
+
+  // Function to show loader
+  const showLoader = () => {
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsLoading(false); // Simulate loading completion after some time
+    }, 3000); // Simulate loading for 3 seconds (adjust as needed)
+  };
 
   return (
     <div className={styles.container}>
@@ -57,7 +67,7 @@ function LoginComponent() {
               {passwordVisible ? '👁️' : '👁️‍🗨️'}
             </div>
           </div>
-          <button type="submit">Login</button>
+          <button type="button" onClick={showLoader}>Login</button> {/* Use type="button" to prevent form submission */}
         </form>
         <p>Don't have an account? <span>Sign Up</span></p>
       </div>
@@ -70,6 +80,7 @@ function LoginComponent() {
           <button className={styles['slider-button']} onClick={nextSlide}>›</button>
         </div>
       </div>
+      {isLoading && <AppLoader />} {/* Render loader conditionally based on isLoading state */}
     </div>
   );
 }
