@@ -14,11 +14,7 @@ const container = document.getElementById('root');
 const root = createRoot(container);
 const router = createBrowserRouter([
   {
-    path: "/",
-    element: <Login/>
-  },
-  {
-    path: "/finance-app",
+    path: "/MapMoney",
     element: <Login/>
   },
   {
