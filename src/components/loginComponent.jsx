@@ -108,7 +108,7 @@ function LoginComponent() {
           </div>
           <button type="submit">Login</button>
         </form>
-        <p>Don't have an account? <span>Sign Up</span></p>
+        <p className={styles['paragraph-signup']}>Don't have an account? <span>Sign Up</span></p>
       </div>
       <div className={styles['right-half']}>
         <div className={styles['slider']}>

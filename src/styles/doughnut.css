@@ -1,6 +1,6 @@
 .newclass{
     position: relative;
-    left: -163px;
+    left: -193px;
 }
 .main-doughnut-div{
     box-sizing: border-box;
@@ -18,8 +18,8 @@
     font-family: 'Inter';
   font-style: normal;
   font-weight: 300;
-  width: 400px;
-  height: 300px;
+  width: 341px;
+  height: 279px;
 }
 .newclass-arcs-path{
     stroke: none;

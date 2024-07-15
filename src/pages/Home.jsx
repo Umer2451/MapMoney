@@ -5,6 +5,8 @@ import icon from "../assets/MoneyMaps.png";
 import Monetary from '../components/monetaryview';
 import AddmonetaryActions from '../components/addmonetaryactions';
 import AppDountChart from '../components/doughnut';
+import RecentTransactions from '../components/recenttransactions';
+import Profile from '../components/profile';
 function Home() {
   return (
     <div className={styles['main-container']}>
@@ -21,7 +23,9 @@ function Home() {
       </div>
       <div className={styles['right-card']}>
         <div className={styles['card-container']}>
+          <RecentTransactions />
         <AppDountChart />
+        <Profile/>
         <Monetary />
         <AddmonetaryActions/>
         </div>

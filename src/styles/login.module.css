@@ -43,6 +43,12 @@ p {
   margin-bottom: 20px;
 }
 
+.paragraph-signup {
+  color: #b0b0b0;
+  margin-bottom: 20px;
+  margin: 30px;
+}
+
 form {
   display: flex;
   flex-direction: column;

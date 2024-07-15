@@ -171,7 +171,7 @@ function AddmonetaryActions() {
             <span className="material-symbols-outlined">loupe</span>
           </button>
           <div className={`incomeDiv paragraphDiv ${inputVisibility.income ? "hidden" : ""}`}>
-            <h2 style={{ display: "flex", height: "1px" }}>Add Income</h2>
+            <h2 style={{ display: "flex", height: "20px"  }}>Add Income</h2>
             <p>Create an income manually</p>
           </div>
         </div>
@@ -197,7 +197,7 @@ function AddmonetaryActions() {
             <span className="material-symbols-outlined">currency_exchange</span>
           </button>
           <div className={`expenseDiv paragraphDiv ${inputVisibility.expense ? "hidden" : ""}`}>
-            <h2 style={{ display: "flex", height: "1px" }}>Add Expense</h2>
+            <h2 style={{ display: "flex", height: "20px"}}>Add Expense</h2>
             <p>Create an expense manually</p>
           </div>
         </div>
@@ -223,7 +223,7 @@ function AddmonetaryActions() {
             <span className="material-symbols-outlined">account_balance</span>
           </button>
           <div className={`balanceDiv paragraphDiv ${inputVisibility.balance ? "hidden" : ""}`}>
-            <h2 style={{ display: "flex", height: "1px" }}>Add Balance</h2>
+            <h2 style={{ display: "flex", height: "20px"  }}>Add Balance</h2>
             <p>Create a balance manually</p>
           </div>
         </div>

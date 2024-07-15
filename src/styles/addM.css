@@ -119,7 +119,8 @@ font-weight: 300;
     align-items: flex-end;
     width: 100%;
     position: relative;
-    left: 37px
+    left: 37px;
+    gap: 10px;
 }
 
 .paragraphDiv.hidden {
