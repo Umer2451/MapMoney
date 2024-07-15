@@ -4,16 +4,29 @@ import cover1 from "../assets/piggybank.png";
 import cover2 from "../assets/piggybank2.png";
 import icon from "../assets/MoneyMaps.png";
 import AppLoader from './loader';
+import toast, { Toaster } from 'react-hot-toast';
+import { useDispatch } from 'react-redux';
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { useNavigate } from 'react-router-dom';
+import { pushUserData } from '../features/MoneyMapFeatures/appSlicer';
+import firebaseApp from "../app/firebase";
 
 function LoginComponent() {
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isLoading, setIsLoading] = useState(false); // State to control loader display
+  const [username, setUserEmail] = useState('');
+  const [password, setUserPassword] = useState('');
+  const auth = getAuth(firebaseApp);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
+  // Function to toggle password visibility
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
   };
 
+  // Slides for the image slider
   const slides = [cover1, cover2];
 
   // Function to go to the next slide
@@ -36,28 +49,51 @@ function LoginComponent() {
     return () => clearInterval(interval);
   }, [currentSlide, slides.length]);
 
-  // Function to show loader
-  const showLoader = () => {
-    setIsLoading(true);
-    setTimeout(() => {
-      setIsLoading(false); // Simulate loading completion after some time
-    }, 3000); // Simulate loading for 3 seconds (adjust as needed)
+  // Function to handle login form submission
+  const handleLogin = async (event) => {
+    event.preventDefault();
+    setIsLoading(true); // Set loading to true
+    try {
+      // Authenticate user using Firebase
+      await signInWithEmailAndPassword(auth, username, password);
+      const currentUser = auth.currentUser;
+      dispatch(pushUserData({ username: username, password: passwordVisible }));
+
+      if (currentUser) {
+        // Navigate to home page on successful login
+        navigate("/home");
+      } else {
+        toast.error("Incorrect user or password");
+      }
+    } catch (error) {
+      toast.error(error.message);
+    } finally {
+      setIsLoading(false); // Set loading to false after operation is complete
+    }
   };
 
   return (
     <div className={styles.container}>
+      <Toaster /> {/* Toast notifications container */}
       <div className={styles['left-half']}>
         <div className={styles["icon-div"]}>
           <img src={icon} alt="Icon" />
         </div>
         <h1>Hello, Welcome Back!</h1>
         <p>Please sign in to your account</p>
-        <form>
-          <input type="email" placeholder="Email" />
+        <form onSubmit={handleLogin}>
+          <input
+            type="email"
+            placeholder="Email"
+            value={username}
+            onChange={(e) => setUserEmail(e.target.value)}
+          />
           <div className={styles['password-container']}>
             <input
               type={passwordVisible ? "text" : "password"}
               placeholder="Password"
+              value={password}
+              onChange={(e) => setUserPassword(e.target.value)}
               className={styles['password-input']}
             />
             <div
@@ -67,7 +103,7 @@ function LoginComponent() {
               {passwordVisible ? '👁️' : '👁️‍🗨️'}
             </div>
           </div>
-          <button type="button" onClick={showLoader}>Login</button> {/* Use type="button" to prevent form submission */}
+          <button type="submit">Login</button>
         </form>
         <p>Don't have an account? <span>Sign Up</span></p>
       </div>

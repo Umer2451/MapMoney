@@ -15,5 +15,5 @@ export const appSlice = createSlice({
     }
 }
 )
-
+export const {pushUserData} = appSlice.actions;
 export default appSlice.reducer;
