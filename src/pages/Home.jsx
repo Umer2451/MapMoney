@@ -4,6 +4,7 @@ import styles from "../styles/home.module.css";
 import icon from "../assets/MoneyMaps.png";
 import Monetary from '../components/monetaryview';
 import AddmonetaryActions from '../components/addmonetaryactions';
+import AppDountChart from '../components/doughnut';
 function Home() {
   return (
     <div className={styles['main-container']}>
@@ -20,6 +21,7 @@ function Home() {
       </div>
       <div className={styles['right-card']}>
         <div className={styles['card-container']}>
+        <AppDountChart />
         <Monetary />
         <AddmonetaryActions/>
         </div>
