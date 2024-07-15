@@ -9,19 +9,19 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import Login from './pages/Login';
 const container = document.getElementById('root');
 const root = createRoot(container);
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <div>Hello world!</div>,
+    element: <Login/>
   },
 ]);
 root.render(
   <React.StrictMode>
     <Provider store={store}>
     <RouterProvider router={router} />
-      <App />
     </Provider>
   </React.StrictMode>
 );
