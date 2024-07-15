@@ -10,15 +10,15 @@ import firebaseApp from '../../app/firebase';
 import { auth, db } from '../../app/firebase';
 const initialState = {
   userData : [],
+  lastTransactions: [],
+  profilepic: "",
+  setProfilepicURL: "",
   userTransactions: {
     Transactions: {
       userBalance: "0",
       userIncome: "0",
       userExpense: "0",
     },
-    lastTransactions: [],
-    profilepic: "",
-    setProfilepicURL: ""
   },
 };
 export const fetchUserTransactions = createAsyncThunk(

@@ -1,33 +1,82 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import React from "react";
+import { NavLink } from "react-router-dom";
 import styles from "../styles/home.module.css";
 import icon from "../assets/MoneyMaps.png";
-import Monetary from '../components/monetaryview';
-import AddmonetaryActions from '../components/addmonetaryactions';
-import AppDountChart from '../components/doughnut';
-import RecentTransactions from '../components/recenttransactions';
-import Profile from '../components/profile';
+import Monetary from "../components/monetaryview";
+import AddmonetaryActions from "../components/addmonetaryactions";
+import AppDountChart from "../components/doughnut";
+import RecentTransactions from "../components/recenttransactions";
+import Profile from "../components/profile";
+import { fetchUserLastTransactions } from "../features/MoneyMapFeatures/appSlicer";
+import { updateLastTransactionState } from "../features/MoneyMapFeatures/appSlicer";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { db } from "../app/firebase";
+import { collection } from "firebase/firestore";
+import { useState, useEffect } from "react";
 function Home() {
+  const data = useSelector((state) => state.appData);
+  let lastTransactions = data.lastTransactions;
+  let dispatch = useDispatch();
+  const value = collection(db, "userTransactions");
+  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        let lastData = await dispatch(fetchUserLastTransactions());
+        dispatch(updateLastTransactionState(lastData.payload.lastTransactions));
+      } catch (error) {
+        console.error("Error fetching user last transactions:", error);
+      }
+    };
+    fetchData();
+  }, [dispatch]);
   return (
-    <div className={styles['main-container']}>
-      <div className={styles['left-nav']}>
+    <div className={styles["main-container"]}>
+      <div className={styles["left-nav"]}>
         <div className={styles["icon-div"]}>
           <img src={icon} alt="Icon" />
         </div>
-        <nav className={styles['nav-links']}>
-          <NavLink to="/home" className={styles['nav-link']} activeclassname={styles['active']}>Overview</NavLink>
-          <NavLink to="/account" className={styles['nav-link']} activeclassname={styles['active']}>Account</NavLink>
-          <NavLink to="/transactions" className={styles['nav-link']} activeclassname={styles['active']}>Transactions</NavLink>
-          <NavLink to="/wallet" className={styles['nav-link']} activeclassname={styles['active']}>Wallet</NavLink>
+        <nav className={styles["nav-links"]}>
+          <NavLink
+            to="/home"
+            className={styles["nav-link"]}
+            activeclassname={styles["active"]}
+          >
+            Overview
+          </NavLink>
+          <NavLink
+            to="/account"
+            className={styles["nav-link"]}
+            activeclassname={styles["active"]}
+          >
+            Account
+          </NavLink>
+          <NavLink
+            to="/transactions"
+            className={styles["nav-link"]}
+            activeclassname={styles["active"]}
+          >
+            Transactions
+          </NavLink>
+          <NavLink
+            to="/wallet"
+            className={styles["nav-link"]}
+            activeclassname={styles["active"]}
+          >
+            Wallet
+          </NavLink>
         </nav>
       </div>
-      <div className={styles['right-card']}>
-        <div className={styles['card-container']}>
+      <div className={styles["right-card"]}>
+        <div className={styles["card-container"]}>
+          <>
           <RecentTransactions />
-        <AppDountChart />
-        <Profile/>
-        <Monetary />
-        <AddmonetaryActions/>
+          </>
+          <AppDountChart />
+          <Profile />
+          <Monetary />
+          <AddmonetaryActions />
         </div>
       </div>
     </div>
