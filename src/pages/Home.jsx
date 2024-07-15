@@ -13,7 +13,7 @@ function Home() {
           <img src={icon} alt="Icon" />
         </div>
         <nav className={styles['nav-links']}>
-          <NavLink to="/" className={styles['nav-link']} activeclassname={styles['active']}>Home</NavLink>
+          <NavLink to="/home" className={styles['nav-link']} activeclassname={styles['active']}>Overview</NavLink>
           <NavLink to="/account" className={styles['nav-link']} activeclassname={styles['active']}>Account</NavLink>
           <NavLink to="/transactions" className={styles['nav-link']} activeclassname={styles['active']}>Transactions</NavLink>
           <NavLink to="/wallet" className={styles['nav-link']} activeclassname={styles['active']}>Wallet</NavLink>
