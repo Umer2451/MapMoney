@@ -10,7 +10,8 @@ import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from 'react-router-dom';
 import { pushUserData } from '../features/MoneyMapFeatures/appSlicer';
 import firebaseApp from "../app/firebase";
-
+import { fetchUserTransactions } from '../features/MoneyMapFeatures/appSlicer';
+import { getUserTransactions } from '../features/MoneyMapFeatures/appSlicer';
 function LoginComponent() {
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -58,7 +59,10 @@ function LoginComponent() {
       await signInWithEmailAndPassword(auth, username, password);
       const currentUser = auth.currentUser;
       dispatch(pushUserData({ username: username, password: passwordVisible }));
-
+      let data = await dispatch(fetchUserTransactions())
+      if(data.payload){
+        dispatch(getUserTransactions({ userTransaction : data.payload }));
+      }
       if (currentUser) {
         // Navigate to home page on successful login
         navigate("/home");
