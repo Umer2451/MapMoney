@@ -1,0 +1,134 @@
+/* Flex Main Container (if used elsewhere) */
+.monetary-container{
+    display: flex;
+    gap: 10px;
+  }
+  .main {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0;
+    gap: 32px;
+    width: 1216px;
+    height: 120px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+  }
+  
+  /* Balance Container */
+  .balance-container {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px;
+    gap: 8px;
+    width: 384px;
+    height: 120px;
+    background-color: #d6ebed;
+    border: 1px solid #eceff2; /* Shadows/shadow-xs */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    flex: none;
+    order: 0;
+    flex-grow: 1;
+    font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300;
+  }
+  .expense-container {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px;
+    gap: 8px;
+    width: 384px;
+    height: 120px;
+    border: 1px solid #eceff2; /* Shadows/shadow-xs */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    flex: none;
+    order: 0;
+    flex-grow: 1;
+    font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300;
+  background-color: #edd6d6;
+  }
+  .income-container {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px;
+    gap: 8px;
+    width: 384px;
+    height: 120px;
+    border: 1px solid #eceff2; /* Shadows/shadow-xs */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    flex: none;
+    order: 0;
+    flex-grow: 1;
+    font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300;
+  background-color: #D6EDD9;
+  }
+  
+  /* Balance Text */
+  .balance-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  /* Balance Amount */
+  .balance-amount {
+    font-size: 2rem;
+    color: blue;
+    font-weight: 500;
+  }
+  .income-amount {
+    font-size: 2rem;
+    color: #62ff00;
+    font-weight: 500;
+  }
+  .expenses-amount {
+    font-size: 2rem;
+    color: red;
+    font-weight: 500;
+  }
+  
+  /* Arrow Container */
+  .arrow-container {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Adjust gap as needed */
+    color: lightgreen;
+    background: #ffffff; /* Gray/100 */
+    border: 1px solid #eceff2; /* Shadows/shadow-xs */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    margin: -31px 10px 0px 82%;
+    width: 17%;
+  }
+  
+  .arrow-container p {
+    font-size: 0.8rem; /* Adjust font size as needed */
+    margin: 0;
+    color: #333
+  }
+  
+  .material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24
+  }
+
+  
