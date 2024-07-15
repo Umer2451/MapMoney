@@ -2,7 +2,13 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   userData : [],
-  userTransactions: []
+  userTransactions: {
+    Transactions: {
+      userBalance: "0",
+      userIncome: "0",
+      userExpense: "0",
+    },
+  },
 };
 
 export const appSlice = createSlice({

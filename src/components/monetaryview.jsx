@@ -3,14 +3,9 @@ import { useSelector } from "react-redux";
 import styles from "../styles/monetaryview.module.css"; // Import your CSS module
 function Monetary() {
   const data = useSelector((state) => state.appData.userTransactions?.Transactions);
-
-  // Ensure data exists and has the required keys
-//   const userBalance = Number(data.userBalance ?? 0).toLocaleString('en-US', { style: 'currency', currency: 'USD' });
-//   const userExpense = Number(data.userExpense ?? 0).toLocaleString('en-US', { style: 'currency', currency: 'USD' });
-//   const userIncome = Number(data.userIncome ?? 0).toLocaleString('en-US', { style: 'currency', currency: 'USD' });
-    let userBalance = 0;
-    let userExpense = 0;
-    let userIncome = 0;
+  const userBalance = Number(data.userBalance ?? 0).toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+  const userExpense = Number(data.userExpense ?? 0).toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+  const userIncome = Number(data.userIncome ?? 0).toLocaleString('en-US', { style: 'currency', currency: 'USD' });
   return (
     <div className={styles['monetary-container']}>
 
